@@ -1,0 +1,20 @@
+net-tools:
+it is a package that provides a collection of networking utilities for Linux systems. 
+These tools allow users to configure and troubleshoot various aspects of the network.
+
+1. unzip:
+unzip is a command-line utility used to extract or decompress files from .zip archives. 
+It allows you to access the contents of zipped files by extracting them to a specified location.
+
+
+Jq:
+The real power of jq lies in its ability to filter, transform, and query JSON data efficiently and effectively, 
+especially when dealing with large or complex JSON structures. It’s a key tool for DevOps, data processing, and 
+automation tasks where JSON is prevalent.
+
+it make json file more readable
+
+command to install all the above tools:
+sudo apt install jq -y && apt install net-tools -y && apt install unzip -y
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++==

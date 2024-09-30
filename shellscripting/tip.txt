@@ -1,0 +1,55 @@
+tmux:
+using this we can split the screens 
+
+commands:
+Split the current pane horizontally: Press Ctrl + b, then %.
+Split the current pane vertically: Press Ctrl + b, then ".
+Switch between panes: Press Ctrl + b, then an arrow key or o to move to the next pane.
+Close the current pane: Press Ctrl + b, then x.
+
+------------------------------------------------------------------------------
+
+Chmod 
+
+
+
+Digits: Each digit can be a number from 0 to 7.
+Positions: The three positions represent:
+1st Digit: Permissions for the owner of the file.
+2nd Digit: Permissions for the group that the file belongs to.
+3rd Digit: Permissions for others (everyone else).
+
+Each digit is the sum of its corresponding permission values:
+
+Read (r): 4
+Write (w): 2
+Execute (x): 1
+
+Examples
+7: (4 + 2 + 1) = Read, Write, and Execute
+6: (4 + 2 + 0) = Read and Write
+5: (4 + 0 + 1) = Read and Execute
+4: (4 + 0 + 0) = Read only
+3: (2 + 1 + 0) = Write and Execute
+2: (2 + 0 + 0) = Write only
+1: (0 + 0 + 1) = Execute only
+0: No permissions
+Examples of chmod
+chmod 777 file:
+
+Owner: Read, Write, Execute (7)
+Group: Read, Write, Execute (7)
+Others: Read, Write, Execute (7)
+chmod 700 file:
+
+Owner: Read, Write, Execute (7)
+Group: No permissions (0)
+Others: No permissions (0)
+
+Summary
+chmod 777 grants full permissions to everyone.
+chmod 700 gives full permissions only to the owner, restricting access to others.
+
+
+------------------------------------------------------------
+how to add users in groups 
