@@ -10,8 +10,7 @@ if [ -z "$path" ]; then
     echo "Please provide the path."
     exit 1
 else
-    TIMESTAMP=$(date +"%Y%m%d_%H%M%S") 
-    Backup_path="/home/kumar/shellscripting_$TIMESTAMP.txt"
+    Backup_path="/home/kumar/shellscriptingbackup"
 
     mkdir -p "$Backup_path"  # this will create a backup directory if not present 
 
@@ -23,10 +22,20 @@ else
     else 
         echo "Moving all the log files created 30 days ago to Backup_path: $Backup_path"
         for Tempfile in "${Tempfiles[@]}"; do 
-            cp "$Tempfile" "$Backup_path"  # as a demo i used cp but we need to use mv command
-            #mv "$Tempfile" "$Backup_path"
+            #cp "$Tempfile" "$Backup_path"  
+            mv "$Tempfile" "$Backup_path"
             echo "$Tempfile moved to Backup_path: $Backup_path"
         done
     fi
 fi
+
+backup_Tempfiles=($(find "$Backup_path" -type f -mtime +30))
+
+if [ -z "$backup_Tempfiles" ]; then 
+    echo "No backup files to move to S3 Glacier"
+else
+    aws s3 mv $Backup_path s3://log-backup-cppe/backuplogs/ --storage-class GLACIER --recursive
+fi     
+
+
 
