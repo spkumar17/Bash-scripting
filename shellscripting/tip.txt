@@ -52,4 +52,22 @@ chmod 700 gives full permissions only to the owner, restricting access to others
 
 
 ------------------------------------------------------------
-how to add users in groups 
+
+
+Numeric Comparison Operators
+Here are some common numeric comparison operators in shell scripting:
+
+-eq: Checks if two numbers are equal.
+-ne: Checks if two numbers are not equal.
+-gt: Checks if one number is greater than another.
+-lt: Checks if one number is less than another.
+-ge: Checks if one number is greater than or equal to another.
+-le: Checks if one number is less than or equal to another.
+String Comparison
+For string comparisons, you should use the following operators:
+
+=: Checks if two strings are equal.
+!=: Checks if two strings are not equal.
+<: Checks if one string is less than another (lexicographically).
+>: Checks if one string is greater than another (lexicographically).
+==: Checks if two strings are equal (works in [[ ... ]] but can also be used in [ ... ] with some shells).
