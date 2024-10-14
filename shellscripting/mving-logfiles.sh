@@ -1,4 +1,6 @@
 
+read -p "enter the backup path" path
+
 if [ -z "$path" ]; then
     echo "Please provide the path."
     exit 1
@@ -26,8 +28,10 @@ fi
 
 backup_Tempfiles=($(find "$Backup_path" -type f -mtime +30))
 
-if [ -z "$backup_Tempfiles" ]; then
+if [ ${#backup_Tempfiles[@]} -eq 0 ]; then
     echo "No backup files to move to S3 Glacier"
 else
     aws s3 cp $Backup_path s3://log-backup-cppe/backuplogs/ --storage-class GLACIER --recursive
 fi
+
+
