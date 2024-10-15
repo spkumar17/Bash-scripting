@@ -20,3 +20,28 @@ Terraform offers greater flexibility and multi-cloud support compared to cloud-n
 | Dry-Run Capability                | Limited                             | `terraform plan` for effective dry-run |
 | Importing Resources               | Complex in AWS, not available in ARM | Simple with `terraform import` |
 
+## Data sources:
+
+Data sources in Terraform is used to fetch information about existing resources, such as VPC IDs, subnet IDs, security group IDs, etc. Once you retrieve this information, you can use it in your Terraform configurations to create or manage other resources.
+
+### Example:
+Fetching AZ'S using data source and creating subnets in that AZ
+``` 
+data "aws_availability_zones" "available_zones" {
+  state = "available"
+}
+
+#public subnets 
+resource "aws_subnet" "pubsubnet1a" {
+    vpc_id     = aws_vpc.myvpc.id
+    availability_zone = data.aws_availability_zones.available_zones.names[0]
+    cidr_block = var.pubsub1a_cidr_block
+    map_public_ip_on_launch = true
+
+
+
+  tags = {
+    Name = "pubsubnet_us_east_1a"
+  }
+}
+```
