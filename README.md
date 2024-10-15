@@ -45,3 +45,17 @@ resource "aws_subnet" "pubsubnet1a" {
   }
 }
 ```
+## What is Terraform import:
+
+The terraform import command in Terraform is used to bring existing infrastructure under Terraform's management. It allows you to take resources that were created manually (or by another tool) and incorporate them into your Terraform state, without the need to recreate them.
+
+## Why  terraform import?
+
+#### Manage existing resources: 
+If you have infrastructure that wasn’t created with Terraform, you can start managing it using Terraform by importing the resources.
+#### Avoid downtime:
+It helps you bring existing resources into Terraform without destroying or re-creating them, so there’s no downtime for critical services.
+#### Infrastructure consolidation:
+When migrating from manual cloud setups to Infrastructure as Code (IaC), terraform import allows for a smooth transition.
+
+ 
