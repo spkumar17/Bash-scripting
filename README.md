@@ -102,4 +102,18 @@ The state file is a JSON file that stores the current state of your infrastructu
 Storing the Terraform state file locally is not a best practice, especially in scenarios where multiple engineers work on the same infrastructure. Keeping the state file locally can lead to duplicate infrastructure, as each engineer has their own version of the state file, resulting in potential conflicts and inconsistencies. In contrast, storing the state file in a remote location facilitates easier monitoring and management of the infrastructure's state, ensuring that all team members have access to the most up-to-date information and reducing the risk of discrepancies.
 versioning the state file helps to retrieve the state if there is any issues in the infrastructure.
 
+## Dependencies in Terraform
+
+### 1.Implicit Dependencies:
+	
+An implicit dependency occurs when one resource refers to the attribute of another resource. For example, when creating a VPC and then an Internet Gateway, the Internet Gateway doesn't inherently know that it must wait for the VPC to be created. However, when you reference the VPC ID in the Internet Gateway resource, Terraform understands that the VPC must be created first.
+
+- **Example:**  When you declare a **VPC**, its ID is generated only after it is created. Any resource, like a **subnet** or **Internet Gateway**, that references this **VPC ID** creates an implicit dependency.
+
+### 2. Explicit Dependencies
+Sometimes, implicit dependencies aren’t enough. For example, if we want the **S3 bucket** to be created only after the VPC is created, we need to use explicit dependencies. This is done using the `depends_on` argument in Terraform.
+
+- **Example:**  
+  A **NAT Gateway** should only be created after a **Route Table** has been established. If the NAT Gateway is created before the route table, it won’t function as expected. This is where **explicit dependencies** come into play using `depends_on`.
+
 
