@@ -58,4 +58,30 @@ It helps you bring existing resources into Terraform without destroying or re-cr
 #### Infrastructure consolidation:
 When migrating from manual cloud setups to Infrastructure as Code (IaC), terraform import allows for a smooth transition.
 
- 
+ ### Work-flow:
+
+#### Step1:   Import the existing infrastructure:
+
+You run the terraform import command to import the manually created infrastructure into Terraform's state file. This step only updates the state file but does not update or create any configuration in your .tf files.
+
+```
+terraform import aws_instance.my_instance i-1234567890abcdef
+```
+After running this command, Terraform will know about this resource (aws_instance.my_instance) and track its state.
+
+#### Step 2:  Write the corresponding Terraform configuration
+
+You need to manually write the Terraform configuration for the imported resource in your .tf files. The configuration must match the existing resource exactly
+
+```
+resource "aws_instance" "my_instance" {
+  instance_type = "t2.micro"
+  ami           = "ami-0abcdef1234567890"
+  # Other attributes that reflect the current state
+}
+```
+After writing the configuration, Terraform will manage this resource as part of its lifecycle.
+
+Then run ``` terraform plan```  to verify.
+
+
