@@ -84,4 +84,6 @@ After writing the configuration, Terraform will manage this resource as part of 
 
 Then run ``` terraform plan```  to verify.
 
+## Difference between Data Source and Terraform import:
+
 
