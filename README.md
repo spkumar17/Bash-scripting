@@ -93,5 +93,13 @@ Then run ``` terraform plan```  to verify.
 | **Manages lifecycle?**| Yes, Terraform manages the resource's lifecycle | No, Terraform doesn't control the resource |
 | **Typical usage**     | Transitioning existing infra to Terraform | Referencing attributes like ID, region, status, etc. |
 
+## State file:
+
+The state file is a JSON file that stores the current state of your infrastructure. It acts as a source of truth for Terraform, keeping track of all resources
+
+## Remote state file:
+
+Storing the Terraform state file locally is not a best practice, especially in scenarios where multiple engineers work on the same infrastructure. Keeping the state file locally can lead to duplicate infrastructure, as each engineer has their own version of the state file, resulting in potential conflicts and inconsistencies. In contrast, storing the state file in a remote location facilitates easier monitoring and management of the infrastructure's state, ensuring that all team members have access to the most up-to-date information and reducing the risk of discrepancies.
+versioning the state file helps to retrieve the state if there is any issues in the infrastructure.
 
 
