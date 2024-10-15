@@ -86,4 +86,12 @@ Then run ``` terraform plan```  to verify.
 
 ## Difference between Data Source and Terraform import:
 
+| Feature               | Terraform Import                          | Data Source                             |
+|-----------------------|------------------------------------------|-----------------------------------------|
+| **Use case**          | Manage an existing resource with Terraform | Fetch information from an existing resource |
+| **Modifies state?**   | Yes, adds the resource to Terraform's state | No, only fetches data                   |
+| **Manages lifecycle?**| Yes, Terraform manages the resource's lifecycle | No, Terraform doesn't control the resource |
+| **Typical usage**     | Transitioning existing infra to Terraform | Referencing attributes like ID, region, status, etc. |
+
+
 
