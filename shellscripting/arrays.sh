@@ -1,7 +1,7 @@
 name='prasanna kumar'
 echo ${name} # this displays the name
 echo ${#name} # this display the length
-echo ${name[@]:0:2} # this display the first to letters of the string
+echo ${name[@]:0:2} # this display the first two letters of the string
 
 
 for i in {0..14};
