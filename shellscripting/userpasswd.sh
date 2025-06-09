@@ -36,6 +36,14 @@ if [ $# -gt 0 ]; then
 
         # Generate a random temporary password
         Spec=$(echo '!@#$%^&*()_' | fold -w1 | shuf | head -1)
+# | Part                 | Explanation                                           |
+# | -------------------- | ----------------------------------------------------- |
+# | `echo '!@#$%^&*()_'` | Prints the string of special characters               |
+# | `fold -w1`           | Splits the string into **one character per line**     |
+# | `shuf`               | Randomly **shuffles** the lines                       |
+# | `head -1`            | Takes the **first line** (i.e., one random character) |
+# | `Spec=$(...)`        | Stores the result into the **`Spec` variable**        |
+
         PASSWORD="temp@${RANDOM}${Spec}"
         
         # Set the password for the new user
