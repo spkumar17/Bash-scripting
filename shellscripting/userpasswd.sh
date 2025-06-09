@@ -94,7 +94,7 @@ fi
 
 
 
-# multi user creating using read commad  #
+# multi user creating using read commad  # not as argument
 
 
 #!/bin/bash
