@@ -1,6 +1,11 @@
 
 #1/bin/bash
 aws --version > /dev/null
+
+# /dev/null is a special file in Unix/Linux.
+# Anything written to it is discarded (gone forever).
+# It acts like a black hole: no output, no errors, no logs.
+
 if [ $? -eq 0 ]; then
     read -p "enter the aws regions:" regions
     if [ -n "$regions" ]; then
