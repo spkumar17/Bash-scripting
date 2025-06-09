@@ -8,7 +8,7 @@ aws --version > /dev/null
 
 if [ $? -eq 0 ]; then
     read -p "enter the aws regions:" regions
-    if [ -n "$regions" ]; then
+    if [ -n "$regions" ]; then   # -n "$regions" --- "-n tests if the string length is non-zero (not empty)"  === > -z---True if string is empty
         for region in $regions; do
             echo " fetching details in $region"
             aws ec2 describe-vpcs --region $region |jq ".Vpcs[].VpcId"
