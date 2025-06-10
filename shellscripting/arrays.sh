@@ -2,6 +2,10 @@ name='prasanna kumar'
 echo ${name} # this displays the name
 echo ${#name} # this display the length
 echo ${name[@]:0:2} # this display the first two letters of the string
+echo ${!name[@]}     # Print the indices of the array (but name is a string, not an array)
+# (Since name is a string, Bash treats it as an array with one element at index 0.)
+
+
 
 
 for i in {0..14};
